@@ -1,17 +1,13 @@
-# render.yaml - Render.com deployment configuration
 services:
   - type: web
     name: seo-pdf-renderer
-    runtime: python3
+    env: python
     repo: https://github.com/yourusername/seo-pdf-renderer.git # Replace with your repo
     branch: main
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    plan: free  # or starter for production
+    plan: free
     region: oregon
-    scaling:
-      minInstances: 1
-      maxInstances: 3
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
