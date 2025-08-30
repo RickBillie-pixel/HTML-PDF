@@ -2,12 +2,9 @@ services:
   - type: web
     name: seo-pdf-renderer
     env: python
-    repo: https://github.com/yourusername/seo-pdf-renderer.git # Replace with your repo
-    branch: main
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     plan: free
-    region: oregon
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
